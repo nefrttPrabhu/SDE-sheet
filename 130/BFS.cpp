@@ -1,7 +1,8 @@
+/*
 S1. define queue
 S2. create a visited array
 S3. adjecency list
-
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,8 +22,8 @@ class Solution {
 
         {
             int node = q.front(); // get the topmost element in the queue
-            q.pop(); 
-            bfs.push_back(node); 
+            q.pop(); // node mai store kar liya then q ke top se pop kar diya
+            bfs.push_back(node); //wahi fir bfs jo output chahiye usmai dla diya
             
             for(auto it : adj[node]) // traverse for all its neighbours and ye list given hoti hi 
             {
