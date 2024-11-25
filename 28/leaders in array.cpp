@@ -28,3 +28,36 @@ vector<int> printLeaders(int arr[], int n) {
   
   return ans;
 }
+
+
+/*
+My solution need some improvments
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+    int i=0,j=0,n=arr.size();
+    vector<int> temp={0};
+    while(i<n||j<n){
+        if(arr[i]>=arr[j]){
+            if(j!=n){
+                j++;
+            }
+            else{
+                temp.push_back(arr[i]);
+                j=i;i++;
+            }
+        }
+        else{
+            if(i!=n){
+                i++;
+            }
+            else{
+                temp.push_back(arr[j]);
+                i=j;j++;
+            }
+        }
+    }
+    return temp;
+} 
+};
+*/
