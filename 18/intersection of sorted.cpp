@@ -40,17 +40,4 @@ using namespace std;
     
 }
 
-int main() {
-    
-  // Array Initialisation.
-  vector < int > A {1,2,3,3,4,5,6,7};
-  vector < int > B {3,3,4,4,5,8};
 
-  vector<int> ans = intersectionOfArrays(A,B);
-  
-  for (int i = 0; i < ans.size(); i++) {
-    cout << ans[i] << " ";
-  }
-
-  return 0;
-}
