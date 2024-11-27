@@ -1,3 +1,27 @@
+//personal method jaise code ekek row ke liye likha tha row ke liye alag fng banado then row number bhejte jao or triangle row print hoti jayengi
+#include <bits/stdc++.h>
+using namespace std;
+
+void fun(int row) {
+    int ans = 1; // Initialize the first element
+    for (int i = 0; i <= row; i++) { 
+        cout << ans << " "; 
+        ans = ans * (row - i) / (i + 1); // Compute the next element in the row
+    }
+    cout << endl; // Move to the next row
+}
+
+int main() {
+    int n;
+    cin >> n; // Input number of rows
+    for (int row = 0; row < n; row++) { 
+        fun(row); // Pass the current row to `fun`
+    }
+    return 0;
+}
+
+
+
 // Brute force
 int nCr(int n, int r) {
     long long res = 1;
@@ -23,6 +47,7 @@ vector<vector<int>> pascalTriangle(int n) {
     }
     return ans;
 }
+
 
 
 // optimal
