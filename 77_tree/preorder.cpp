@@ -1,3 +1,14 @@
+/*
+        1
+       / \
+      2   3
+     / \
+    4   5
+output: 1 2 3 5 3
+
+*/
+
+
 void preorder(node) // node left right jiski jitni importance utna phle vo as per the name here we have pre: node highest then left then right 
 {
     if(node==NULL) // recusrion se pura tree traverse kar rhe
