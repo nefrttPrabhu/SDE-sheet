@@ -1,3 +1,11 @@
+/*
+         1
+       /   \
+      2     3
+     / \   / \
+    4   5 6   7
+*/
+
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) 
@@ -25,8 +33,13 @@ public:
                 
                 if (node->right != NULL) 
                     q.push(node->right); // If the node has a right child, add it to the queue
+                // ye dono if he reason hi for the size's size yahi q mai push karte ja rhe left and right childs of the parent nodes
+                // I1: size=1 due to node =   [1]    =level 1
+                // I2: size=2 due to node =  [2,3]   =level 2
+                // I3: size=4 due to node =[4,5,6,7] =level 3
+                
             }
-            ans.push_back(level); // Add the current level to the final result
+            ans.push_back(level); // Add the current level to the final result ->[1]->[2,3]->[4,5,6,7]
         }
         return ans; // Return the level order traversal
     }
