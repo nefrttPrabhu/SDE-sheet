@@ -20,6 +20,7 @@ public:
   }
 };
 
+
 int main()
 {
   Node* node1=new Node(10); //aise he jitne new node chaho banao
