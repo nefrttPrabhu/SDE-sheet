@@ -29,7 +29,7 @@ void insertAtFront(Node* &head,int val)
   head=temp;
 }
 
-void insertAtMiddle(Node* head,int pos,int val) // idhar handel karne hote hi 3 cases
+void insertAtMiddle(Npde* &tail,Node* &head,int pos,int val) // idhar handel karne hote hi 3 cases
 {
   Node* temp=head;
   int c=1;
@@ -84,6 +84,12 @@ int main()
 
   insertAtTail(tail,30);
   printlist(tail);
+
+  insertinmiddle(tail,head,3,25);
+  print(head);
+
+  cout<<head->data;
+  cout<<tail->data;
   
 }
 
