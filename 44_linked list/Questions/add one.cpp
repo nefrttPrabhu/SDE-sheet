@@ -43,20 +43,30 @@ Node *addOne(Node *head)
 
 
 //better using recursion
-int helper(Node* temp) {
-        if (temp == NULL) return 1;
-        int sum = helper(temp->next) + temp->data;
-        temp->data = sum % 10;
-        return sum / 10;
+int helper(Node* temp) //add kar rha and aage badh rha
+{
+        if (temp == NULL) 
+            return 1; //last mai add karna na toh jaise he list ke end mai aye return 1 coz addition ka rule units places se addition starts hota hi
+        carry=helper(temp->next) // tab tak jab tak 1 return nhi hota i.e list ends 
+        temp->data=temp->data+carry; //temp ke data mai add karte ja rhe 
+
+        if(temp->data < 10) 
+            return 0; //carry 0 coz less than 10 hi
+
+        //agar maanlo sum aya 10
+        temp->data=0; // current node pe zero he hoga na 10%10=0  10/10=1
+        return 1; //carry bacha 1
     }
 
-    Node* addOne(Node* head) {
-        int carry = helper(head);
-        if (carry == 1) {
-            Node* newNode = new Node(1);
-            newNode->next = head;
-            return newNode;
-        }
-        return head;
+Node* fun(Node* head) //execution starts here
+{
+    int carry = helper(head);
+    if (carry == 1) //agar puri list khtm hua and carry bacha hi 1
+    {
+        Node* newNode = new Node(1); //toh new node create karo and dalo
+        newNode->next = head; //
+        return newNode; //head abhi bhi purane node pe hi usko rehne do andheka kardenge apna kaam ab newhead se ho he jayega kon jhanjhat le head deletion ka
     }
+    return head; //agar carry nhi toh seedha head return
 }
+
