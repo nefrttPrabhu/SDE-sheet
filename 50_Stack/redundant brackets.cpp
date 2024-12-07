@@ -40,30 +40,43 @@ bool isBalanced(string expression) {
 bool hasRedundantBrackets(string expression) {
     stack<char> st;
 
-    for (char ch : expression) {
-        if (ch == ')') 
-        {
-            bool isRedandant = true;
-            while (!st.empty() && st.top() != '(') //jab tak opening nhi aata seach karte rho tab tak jab tak stack empty nhi hota
-            {
+    for (int i = 0; i < expression.length(); i++) {
+        char ch = expression[i];
+
+        // Push opening bracket or operator to the stack
+        if (ch == '(' || ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%') {
+            st.push(ch);
+        } 
+        else {
+            if (ch == ')') {
+            // Check for redundancy
+            bool isRedundant = true;
+
+            // Pop elements until an opening bracket is found
+            while (!st.empty() && st.top() != '(') {
                 char top = st.top();
                 st.pop();
-                if (top == '+' || top == '-' || top == '*' || top == '/') {
-                    isRedandant = false;
+
+                // If an operator is found, the brackets are not redundant
+                if (top == '+' || top == '-' || top == '*' || top == '/' || top == '%') {
+                    isRedundant = false;
                 }
             }
-            if (!st.empty()) {
-                st.pop(); // Remove the opening parenthesis '('
+
+            // Pop the opening bracket
+            if (!st.empty() && st.top() == '(') {
+                st.pop();
             }
-            if (isRedandant) {
-                return true; // Redundant brackets found
+
+            // If no operator was found, the brackets are redundant
+            if (isRedundant) {
+                return true;
             }
         }
-        else {
-            st.push(ch); // Push all other characters until closing is not attained
-        }
-    }//for
-    return false; // No redundant brackets found
+    }
+    }
+    // If we finish processing and no redundant brackets are found
+    return false;
 }
 
 int main() {
