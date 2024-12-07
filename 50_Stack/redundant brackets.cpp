@@ -16,6 +16,7 @@
   Example              |     	       ((a + b))                 |            (a + b
 */
 
+//Eg: (a+(b+c-d)*f)
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -50,22 +51,23 @@ bool hasRedundantBrackets(string expression) {
         else {
             if (ch == ')') {
             // Check for redundancy
-            bool isRedundant = true;
+            bool isRedundant = true; //I1:false I4:false
 
             // Pop elements until an opening bracket is found
-            while (!st.empty() && st.top() != '(') {
-                char top = st.top();
-                st.pop();
+            while (!st.empty() && st.top() != '(') { //I1:(+(+- I2:(+(+ I3:(+( I4:(+
+                char top = st.top(); // I1:- I2:+ I4:+
+                st.pop(); //I1:- I2:+ I4:+
 
                 // If an operator is found, the brackets are not redundant
-                if (top == '+' || top == '-' || top == '*' || top == '/' || top == '%') {
-                    isRedundant = false;
+                if (top == '+' || top == '-' || top == '*' || top == '/' || top == '%') { //I1:false I2:false I4:flase
+                    isRedundant = false; //agar iske baad break laga dete ye sochke ki flatu kyu run kare but agar (a+b*c) aise do operators hi toh ye fir remove nhi ho pate
+                                         //ab aise while tab tak run hoga jabtak sare operators remove nhi ho jate then vo ( remove karega neeche wale if mai, fir se same repeat 
                 }
             }
 
             // Pop the opening bracket
-            if (!st.empty() && st.top() == '(') {
-                st.pop();
+            if (!st.empty() && st.top() == '(') { //I3:(+(
+                st.pop(); //I3:( pop I4:( pop
             }
 
             // If no operator was found, the brackets are redundant
