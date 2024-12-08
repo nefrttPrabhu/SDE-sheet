@@ -1,5 +1,14 @@
-//S1: phele ek baar puri list traverse karo stack mai data store karo 
-//S2: then usse stack ke top ko store karo pop karo and top ke element se list ke element ko overwrite karo
+/*
+S1: phele ek baar puri list traverse karo stack mai data store karo 
+S2: then usse stack ke top ko store karo pop karo and top ke element se list ke element ko overwrite karo
+head->[5]->[4]->[3]->[2]->[1]->NULL
+                                | 1 | 1st pop and overwrite node 1 data
+                                | 2 | 2nd pop and overwrite node 2 data
+                                | 3 | 3rd pop and overwrite node 3 data
+                                | 4 | 4th pop and overwrite node 4 data
+                                | 5 | 5th pop and overwrite node 5 data
+*/
+
 Node* reverseLinkedList(Node* head) {
     // Create a temporary pointer
     // to traverse the linked list
@@ -30,7 +39,7 @@ Node* reverseLinkedList(Node* head) {
     while (temp != nullptr) {
         // Set the current node's data to
         // the value at the top of the stack
-        temp->data = st.top();  
+        temp->data = st.top();  //overwrite value from the top value of stack
         
         // Pop the top element from the stack
         st.pop();              
