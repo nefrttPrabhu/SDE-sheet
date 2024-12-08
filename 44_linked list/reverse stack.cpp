@@ -1,3 +1,5 @@
+//S1: phele ek baar puri list traverse karo stack mai data store karo 
+//S2: then usse stack ke top ko store karo pop karo and top ke element se list ke element ko overwrite karo
 Node* reverseLinkedList(Node* head) {
     // Create a temporary pointer
     // to traverse the linked list
