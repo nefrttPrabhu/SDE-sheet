@@ -18,7 +18,7 @@ void insertAtFront(Node* &head,int val)
 {
   Node* temp=new Node(val); //ek new temporary node create kiya jisko value pass store karwadi
   temp->next=head; // temp ka jo next hi jo ki null (by default)ko point kar rha tha usko hata kar existing node ke head se point karwa do
-  head=temp; // head ko temp node se point karwa do
+  head=temp; // head ko temp node se point karwa do, head ke next se humne kuch nhi kiya coz head toh ek pointer hi jiski help se hum node ke next ya uske data ko access karte hi 
 }
 
 
