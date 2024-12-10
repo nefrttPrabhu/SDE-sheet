@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -15,7 +16,7 @@ struct Node {
 // Define the stack class
 class Stack {
 private:
-    Node* top; // Pointer to the top of the stack
+    Node* top; // Pointer to the top of the stack, its the head here
 
 public:
     // Constructor to initialize the stack
@@ -23,7 +24,7 @@ public:
         top = nullptr;
     }
 
-    // Push operation to add an element to the stack
+    // insertion from head
     void push(int val) {
         Node* newNode = new Node(val); // Create a new node
         newNode->next = top;          // Link the new node to the current top
