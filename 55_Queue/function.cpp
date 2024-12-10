@@ -18,7 +18,9 @@ void push(int val) {
     if (curr == 0) {
         start = 0; // Initialize start when the first element is added
         end = 0;
-    } else {
+    } 
+    
+    else {
         end = (end + 1) % MAX_SIZE; // Update end in circular manner
     }
 
@@ -38,7 +40,9 @@ int pop() {
     if (curr == 1) { // Reset pointers if the queue becomes empty
         start = -1;
         end = -1;
-    } else {
+    } 
+    
+    else {
         start = (start + 1) % MAX_SIZE; // Move start in a circular manner
     }
 
