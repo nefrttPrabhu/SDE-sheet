@@ -68,3 +68,33 @@ public:
 };
 
 */
+
+
+//solution 2
+void trap(vector<int>& arr) {
+    int n = arr.size();
+    if (n == 0) return; // Handle edge case
+    
+    int l = 0, r = n - 1;
+    int lm = 0, rm = 0, total = 0;
+
+    while (l < r) {
+        if (arr[l] < arr[r]) {
+            if (arr[l] > lm) {
+                lm = arr[l]; // Update left max
+            } else {
+                total += lm - arr[l]; // Add trapped water
+            }
+            l++; // Move left pointer
+        } else {
+            if (arr[r] > rm) {
+                rm = arr[r]; // Update right max
+            } else {
+                total += rm - arr[r]; // Add trapped water
+            }
+            r--; // Move right pointer
+        }
+    }
+    cout << total << endl; // Output the result
+}
+
