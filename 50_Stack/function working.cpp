@@ -11,8 +11,10 @@ void push(int val) {
         cout << "Stack is full" << endl;
         return;
     }
-    top++;           // Increment the top pointer
-    arr[top] = val;  // Add the element to the stack
+    else{
+        top++;           // Increment the top pointer
+        arr[top] = val;  // Add the element to the stack
+    }
 }
 
 // Pop operation to remove the top element from the stack
@@ -21,9 +23,11 @@ int pop() {
         cout << "Stack is empty" << endl;
         return -1; // Return an error value
     }
-    int val = arr[top]; // Get the top element
-    top--;              // Decrement the top pointer
-    return val;
+    else{
+        int val = arr[top]; // Get the top element
+        top--;              // Decrement the top pointer
+        return val;
+    }
 }
 
 // Peek operation to get the top element without removing it
