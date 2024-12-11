@@ -3,9 +3,9 @@
 void smallest(vector<int> arr){
     stack<int> s;
     s.push(-1); //-1 coz end wale ke liye arrray mai koi hi he nhi uske baad toh fir -1 by default dal diya arr last mai and also ATQ bhi hi
-    int l = arr.size();
+    int n = arr.size();
   
-    for(int i = l ; i >= 0 ; i--)// peeche se chal rhe 3 -> 4 -> 1 -> 2
+    for(int i = n-1 ; i >= 0 ; i--)// peeche se chal rhe 3 -> 4 -> 1 -> 2
     {
         int curr = arr[i]; //I1: 3
         while(!s.empty() && s.top() >= curr) //tabtak pop karte raho jabtak hume current element se chota nhi mil jata ya fir stack empty nhi ho jata
