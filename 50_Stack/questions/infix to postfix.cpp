@@ -56,7 +56,7 @@ string infixToPostfix(string e) {
             }
             st.push(ch);
         }
-    }
+    }//for
 
     // Pop all remaining operators from the stack
     while (!st.empty()) {
