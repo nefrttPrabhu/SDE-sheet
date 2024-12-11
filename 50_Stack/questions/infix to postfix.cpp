@@ -1,3 +1,8 @@
+/*
+Input: F+D-C*(B+A)
+Output: FDCBA+*-+ 
+*/
+
 #include <iostream>
 #include <stack>
 #include <string>
@@ -37,28 +42,32 @@ string infixToPostfix(string e) {
         else if (ch == '(') {
             st.push(ch);
         }
-        // If the character is a closing parenthesis
+
+        
+        //agar closing mila hi toh fir tab tak ans mai add karta or pop karta rhega jabtak ki opening nhi mil jata
         else if (ch == ')') {
             while (!st.empty() && st.top() != '(') {
                 ans += st.top();
                 st.pop();
             }
-            // Pop the opening parenthesis
+            //add and all sab hogya ab Pop the opening parenthesis
             if (!st.empty()) {
                 st.pop();
             }
         }
-        // If the character is an operator
-        else {
+            
+        // If the character is an operator ans mai add karna hi ki nhi priority dekh ke karo sab 
+        else {//ye wala else likhna toh uper wale elseif ke phele chahiye tha but fir elsif mai sare operators likne pad jata ye mehnat se bachne ke liye he ye chalaki ki hi
             while (!st.empty() && priority(ch) <= priority(st.top())) {
                 ans += st.top();
                 st.pop();
-            }
-            st.push(ch);
+            } 
+            st.push(ch); //iska matlab vo symbol ab mila hi jiski priority zyada hi stack ke top element se
         }
+        
     }//for
 
-    // Pop all remaining operators from the stack
+    // sara priority, brackets wala kaam hogya hi ab bache hue sab remove kardo
     while (!st.empty()) {
         ans += st.top();
         st.pop();
