@@ -34,6 +34,7 @@ int secondSmallest(int arr[],int n)
    return second_small;     
 }
 
+
 int secondLargest(int arr[],int n)
 {
 	if(n<2)
