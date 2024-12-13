@@ -20,6 +20,7 @@ void insertAtTail(Node* &tail,int val)
   Node* temp=new Node(val); //ek new temporary node create kiya jisko value pass store karwadi
   tail->next=temp;          // head ko temp node se point karwa do
   tail=tail->next (temp);   // temp ka jo next hi jo ki null (by default)ko point kar rha tha usko hata kar existing node ke head se point karwa do
+                            //ye glt hi sochna ki tail=temp->next coz tail last pointer ko point karwana hi na ki null ko coz abhi bhi temp->next null but ha temp ko karwa sakte coz there is diff btw temp and temp ka next
 }
 
 
