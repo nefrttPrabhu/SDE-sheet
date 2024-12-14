@@ -17,7 +17,7 @@ Node* reverseLinkedList(Node* head) {
     
     // Save a reference to the node following
     // the current 'head' node. //I1:head->[5]->[4]->[3]->[2]->[1]->NULL I2:head->[4]->[3]->[2]->[1]->NULL I3:head->[3]->[2]->[1]->NULL I4:head->[2]->[1]->NULL ...I4 will be executed 1st then again list links will be changed for I3 then again for I2 again for I1 entirly
-    Node* front = head->next; 
+    Node* front = head->next; //I2:NULL<-[2]<-[1]<-newHead I3:NULL<-[3]<-[2]<-[1]<-newHead I4:NULL<-[4]<-[3]<-[2]<-[1]<-newHead I5:NULL<-[5]<-[4]<-[3]<-[2]<-[1]<-newHead
     
     // Make the 'front' node point to the current
     // 'head' node in the reversed order.
