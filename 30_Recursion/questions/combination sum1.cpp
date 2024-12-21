@@ -1,3 +1,10 @@
+/*
+    input: [1,2,3,4,5]
+    target: 7
+    output: [2,2,3]
+*/
+
+
 class Solution {
 private:
     void findCombinations(int ind, vector<int>& arr, int target, vector<vector<int>>& ans, vector<int>& ds) {
