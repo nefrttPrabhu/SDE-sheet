@@ -47,18 +47,21 @@ void insertAtMiddle(Npde* &tail,Node* &head,int pos,int val) // idhar handel kar
     temp=temp->next;
     c++;
   }
-  //creating the node to be inserted
+  
+  //last mai insert karne ka idhar
+  if(temp->next=NULL)
+    {
+      insertAtTail(tail,val);
+      return;
+    }
+
+  //creating the node to be inserted sab pura uper check karne ke daab ki kahin jo pos mili hi vo 1st toh nhi ya last toh nhi beech ki kahin hi tab add karo nhi toh last or front fng ko call karo and value pass karke in neeche wali line ko ignore karo
   Node* nodetoinsert=new Node(val);
   nodetoinsert->next=temp->next;
   temp->next=nodetoinsert;
 
-  //last mai insert karne ka idhar
-  if(temp->next=NULL)
-  {
-    insertAtTail(tail,val);
-    return;
-  }
 }
+
 
 void printlist(Node* &head)
 {
