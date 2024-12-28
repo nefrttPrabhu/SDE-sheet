@@ -9,7 +9,7 @@ void deleteByValue(Node* &head, int val) {
     Node* prev = NULL;
 
     // Handle the case where the value is in the head node
-    if (head->data == val) {
+    if (head->data == val) { //idhar temp->data se bhi check kar sakte the but aise kiya coz mature move hi thats all 
         head = head->next; // Update the head
         delete temp;       // Free memory
         return;
