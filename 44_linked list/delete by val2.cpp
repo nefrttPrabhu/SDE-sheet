@@ -27,3 +27,26 @@ ListNode* removeElements(ListNode* head, int val) {
 
         return head;
     }
+
+
+/*
+Edge Cases
+Empty List:
+
+If the list is empty (head == NULL), the function simply returns NULL.
+All Nodes Have the Target Value:
+
+The initial while loop will remove all nodes, and the final head will be NULL.
+No Nodes Have the Target Value:
+
+The function will traverse the list without making any changes.
+Consecutive Nodes with the Target Value:
+
+Handled effectively by the logic in both loops.
+
+Time Complexity
+O(n): Each node is visited once during traversal.
+Space Complexity
+O(1): The solution uses constant extra space.
+
+*/
