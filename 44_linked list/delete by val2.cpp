@@ -10,7 +10,7 @@ ListNode* removeElements(ListNode* head, int val) {
             delete temp;            // Delete the current node
         }
 
-        // Traverse the rest of the list
+        // Traverse the rest of the list After the head processing, you use temp for traversal and prev for linking. This works effectively for the rest of the nodes.
         ListNode* temp = head; //L2 related not valid to write only temp = head;
         ListNode* prev = NULL;
 
