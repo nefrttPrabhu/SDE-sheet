@@ -43,6 +43,7 @@ void insertAtMiddle(Npde* &tail,Node* &head,int pos,int val) // idhar handel kar
 
   //middel mai insert karne ka idhar handle ho gya
   while(c<pos-1 && temp->next!=NULL) // coz agar hum 4th position wale ko peeche karenge toh toh hum khud he 4th ban jayenge na 
+                                    // temp->next!=NULL ye ek bhot efficient technique hi faltu ki iterations rokne ke liye length list ki 5 hi pos mangli 10 counter ka kya hi chlta rahe <pos tak temp->next ek baar NULL hogya but firse inner lines saying temp->next ie NULL ka next which DNE
   {
     temp=temp->next;
     c++;
