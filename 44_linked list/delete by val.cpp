@@ -11,7 +11,7 @@ void deleteByValue(Node* &head, int val) {
     // Handle the case where the value is in the head node
     if (head->data == val) { //idhar temp->data se bhi check kar sakte the but aise kiya coz mature move hi thats all 
         head = head->next; // Update the head
-        delete temp;       // Free memory
+        delete temp;       // Free pointer as temp faltu mai he ignored value ko point karta rhega idhar bhi value kabhi nhi delete hoti hi bus uska acess hamesha ke liye kho jata hi to vo by default he delete maan li jati hi coz value delete jaisa koi concept nhi hota hi
         return;
     }
 
@@ -27,7 +27,7 @@ void deleteByValue(Node* &head, int val) {
         return;
     }
 
-    // Update the links and delete the node
+    // Update the links and delete the node, ye neeche wali lines only tabhi execute hongi jab pata hoga ki temp pura exhauste nhi hua ya fir value jo delete karni hi vo 1st nhi
     prev->next = temp->next;
     delete temp;
 }
