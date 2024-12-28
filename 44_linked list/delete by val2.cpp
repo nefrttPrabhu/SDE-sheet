@@ -3,8 +3,8 @@ ListNode* removeElements(ListNode* head, int val) {
         // ListNode* temp = head; isko yahan likhne ye ho ye rha hi ki ist while mai jab ja rha toh delete ho ja rha toh only temp neeche fir se head nhi dal pa rhe uske liye toh vo delete ho chuka hi 
         // isiliye while ke andar ek hi then delete hua then firse ek new same naam ka bana liya same concept variable scope se bhi relate ho rha do independent for loops mai ek he 'i' se hota hi  
 
-        while (head != NULL && head->val == val) // idhar ek he baar toh check karna hi na toh if se kaam kyu nhi chala rhe ek he baar value same nhi do baar bhi ho saki if ek ke baad ek node hi same value ke but ye jo given wala case hi uske liye toh true honi chhiy thi na fir bhi RTE aa rha y???
-        {
+        while (head != NULL && head->val == val) // Que: idhar ek he baar toh check karna hi na toh if se kaam kyu nhi chala rhe ek he baar value same nhi do baar bhi ho saki if ek ke baad ek node hi same value ke but ye jo given wala case hi uske liye toh true honi chhiy thi na fir bhi RTE aa rha y???
+        {                                        // Ans: The code checks the head node: If the value matches val, it removes the head node and moves to the next node. However, it does not check the new head node (i.e., the next node). If the new head node also has the value val, it won't be deleted because the if statement only runs once.
             ListNode* temp = head;  // Save the current head
             head = head->next;      // Move to the next node
             delete temp;            // Delete the current node
