@@ -11,7 +11,7 @@ ListNode* removeElements(ListNode* head, int val) {
         }
 
         // Traverse the rest of the list
-        ListNode* temp = head;
+        ListNode* temp = head; //L2 related not valid to write only temp = head;
         ListNode* prev = NULL;
 
         while (temp != NULL) {
