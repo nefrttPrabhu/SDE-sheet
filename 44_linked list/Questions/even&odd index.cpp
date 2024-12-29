@@ -1,3 +1,8 @@
+//M1: Using stack and overwriting values
+
+
+
+//M2: changing links
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
@@ -21,3 +26,4 @@ public:
         return head; // Return the modified list
     }
 };
+
