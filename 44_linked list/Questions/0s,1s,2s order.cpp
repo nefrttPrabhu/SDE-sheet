@@ -28,12 +28,12 @@ Node* segregate(Node *head) {
         temp = temp->next;
     }
     
-    // Terminate the list of twos to avoid a cycle
-    t->next = NULL;
     
     // Link the three lists together: 0's -> 1's -> 2's
+    z->next = (ones->next) ? ones->next : twos->next;  // Link 0's list to 1's list
     o->next = twos->next;  // Link 1's list to 2's list
-    z->next = ones->next;  // Link 0's list to 1's list
+    // Terminate the list of twos to avoid a cycle
+    t->next = NULL;
     
     // Return the new list starting from the first node after the dummy node
     return zeros->next;
