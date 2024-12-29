@@ -1,3 +1,10 @@
+/*
+Input: head->[2]->[5]->[3]->[4]->[7]->NULL +1 = 2 5 3 4 7
+                                                      + 1
+                                                2 5 3 4 8
+Output: head->[2]->[5]->[3]->[4]->[8]->NULL
+*/
+
 //brute force
 Node reverse(Node head){
     if(head == NULL || head->next ==NULL){
@@ -65,7 +72,7 @@ Node* fun(Node* head) //execution starts here
     {
         Node* newNode = new Node(1); //toh new node create karo and dalo
         newNode->next = head; //
-        return newNode; //head abhi bhi purane node pe hi usko rehne do andheka kardenge apna kaam ab newhead se ho he jayega kon jhanjhat le head deletion ka
+        return newNode; //head abhi bhi purane node pe hi usko rehne do apna kaam ab newhead se ho he jayega kon jhanjhat le head deletion ka headh abhi bhi purani wali node ko he point karta kahega but hum bhje he newNode ko rhe hi 
     }
     return head; //agar carry nhi toh seedha head return
 }
