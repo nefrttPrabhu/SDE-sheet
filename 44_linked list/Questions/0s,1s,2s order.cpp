@@ -1,3 +1,9 @@
+/* Something new 
+   New 1: no need to create dummy node for storing just changing the links of the given LL
+   New 2: no need to take care if 0 1 2 any of these exists
+
+*/
+
 Node* segregate(Node *head) {
     // Create dummy nodes for 0, 1, and 2
     Node* zeros = new Node(-1);  
