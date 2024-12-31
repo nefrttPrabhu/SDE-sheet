@@ -29,7 +29,7 @@ Node* reverseLinkedList(Node* head) {
     
     // Return the 'newHead,' which is the new
     // head of the reversed linked list.
-    return newHead;
+    return newHead; // ye hamesha wahi last wale node ko return kar rha hi as the newHead ie [1]
 }
 
 
