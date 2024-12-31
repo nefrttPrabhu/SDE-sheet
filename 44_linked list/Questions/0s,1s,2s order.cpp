@@ -1,6 +1,6 @@
 /* Something new 
    New 1: no need to create dummy node for storing just changing the links of the given LL
-   New 2: no need to take care if 0 1 2 any of these exists
+   New 2: no need to take care if 0 1 2 any of these exists by default NULL bhi rhe to bhi rehne do acess he nhi kar rhe at the end
 
 */
 
