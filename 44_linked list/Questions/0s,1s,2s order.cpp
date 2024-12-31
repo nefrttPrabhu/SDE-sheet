@@ -25,12 +25,12 @@ Node* segregate(Node *head) {
             t->next = temp;
             t = t->next;
         }
-        temp = temp->next;
+        temp = temp->next; // ye temp agar hum ek ek if else mai bhi likhte toh bhi sahi hota coz input he 0 1 2 mai hoga but its just for good practice
     }
     
     
     // Link the three lists together: 0's -> 1's -> 2's
-    z->next = (ones->next) ? ones->next : twos->next;  // Link 0's list to 1's list
+    z->next = (ones->next) ? ones->next : twos->next;  // Link 0's list to 1's list idhar bus ye check karne ke liye if maan lo ek bhi 1 nhi hi ya ek bhi 2 nhi hi 
     o->next = twos->next;  // Link 1's list to 2's list
     // Terminate the list of twos to avoid a cycle
     t->next = NULL;
