@@ -14,9 +14,8 @@ int printNumbers(int n) {
     if (n == 0) {
         return 0; // Base case: stop recursion
     }
-    int last = printNumbers(n - 1); // Recursive call
-    cout << n << " ";              // Print the current number after recursion
-    return last + 1;               // Return control back to the previous call
+    cout << n << " ";               // Print the current number
+    return printNumbers(n - 1) + 1; // Recursive call and return value
 }
 
 
