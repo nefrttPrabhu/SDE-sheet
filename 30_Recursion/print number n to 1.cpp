@@ -7,12 +7,6 @@ void printNumbers(int n) {
     printNumbers(n - 1);   // Recursive call
 }
 
-int main() {
-    int n = 5;
-    printNumbers(n);       // Call the recursive function
-    cout << endl;
-    return 0;
-}
 
 
 //The function is declared as int fun(int n) so it does return a int value in the recursive case. to the recursive cases and the main which calls it
@@ -25,9 +19,4 @@ int printNumbers(int n) {
     return last + 1;               // Return control back to the previous call
 }
 
-int main() {
-    int n = 5;                     // Set the value of n
-    int result = printNumbers(n);  // Call the recursive function
-    cout << "\nControl returned to main with result: " << result << endl;
-    return 0;
-}
+
