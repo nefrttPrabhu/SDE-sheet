@@ -33,9 +33,9 @@ for (int i = 0; i < n; i++) {
 | Correctness          | Likely incorrect for this problem.                      | Correct for the zero-sum subarray problem.                    |
 
 for case 1:
-Input: a = [3, -1, -2, 0, 2]
-Outer Loop: i = 0, 
-Middle Loop: j = 4 
+Given: a = [3, -1, -2, 0, 2, 6, 4]
+i=0,j=4
+subarray a = [3, -1, -2, 0, 2]
 Subarray considering [3, -1, -2, 0, 2] ie if this one's sum is 0 or not at the end 
 Inner Loop Execution (k = 0 to 4):
 k = 0: sum = 3        = 3 (not 0).
@@ -43,6 +43,8 @@ k = 1: sum = 3 + (-1) = 2 (not 0).
 k = 2: sum = 2 + (-2) = 0 (c++ here).
 k = 3: sum = 0 + 0    = 0 (c++ again).
 k = 4: sum = 0 + 2    = 2 (not 0). this is the actual subarray to be considered but due to above we are considering [3, -1, -2] [3, -1, -2, 0]
+iska count ana chahiye 0 aa rha 2 
+waise he agar i=0,j=6, subarray a = [3, -1, -2, 0, 2] 
 Overcount Issue: Here, Code 1 increments c twice for the same subarray because the sum temporarily equals 0 multiple times during computation.
 Why Code 1 Overcounts
 Logic Flow: Code 1 checks if (sum == 0) for each element added to the sum. This means:
