@@ -154,3 +154,7 @@ void printOriginalLinkedList(Node* head, int depth) {
         head = head->next;
     }
 }
+
+
+//M3: Same used for mergeing k sorted lists
+using the heads of the given flat list then iterating as per the avaliable heads
