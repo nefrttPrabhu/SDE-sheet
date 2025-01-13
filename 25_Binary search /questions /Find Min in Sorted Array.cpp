@@ -10,7 +10,7 @@ public:
     int findMin(vector<int>& nums) {
         int left = 0, right = nums.size() - 1;
 
-        while (left < right) {
+        while (left < right) {//idhar = is liye nhi nikal coz last mai jab r and l will be on same spot then mid=3+(3-3)/2=3 toh baar baar 3 ata rhta and mid and r would have never updated and loop infinity tak fass jata
             int mid = left + (right - left) / 2;
 
             // If the middle element is greater than the rightmost element,
