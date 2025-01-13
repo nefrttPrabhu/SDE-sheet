@@ -1,3 +1,4 @@
+//M1: basic
 // Function to find the leftmost index of the target
 int findLeftIndex(const vector<int>& nums, int target) {
     int left = 0, right = nums.size() - 1;
@@ -46,18 +47,8 @@ int findRightIndex(const vector<int>& nums, int target) {
 
 
 
-//M1:
-class Solution {
-    public int[] searchRange(int[] nums, int target) {
-        int[] result = {-1, -1};
-        int left = findLeftIndex(nums, target);
-        int right = findRightIndex(nums, target);
-        result[0] = left;
-        result[1] = right;
-        return result;
-    }
-
-    private int findLeftIndex(int[] nums, int target) {
+//M2:
+ int findLeftIndex(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
 
         while (left <= right) {
@@ -73,7 +64,7 @@ class Solution {
         return (left < nums.length && nums[left] == target) ? left : -1;
     }
 
-    private int findRightIndex(int[] nums, int target) {
+ int findRightIndex(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
@@ -88,17 +79,7 @@ class Solution {
 }
 
 
-//M2: doing in 1 fng
-class Solution {
-public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        // Helper functions to find the first and last occurrence
-        int first = findBound(nums, target, true);
-        int last = findBound(nums, target, false);
-        return {first, last};
-    }
-
-private:
+//M3: doing in 1 fng by calling same fng 1st for left then for right
     int findBound(vector<int>& nums, int target, bool isFirst) {
         int left = 0, right = nums.size() - 1;
         int bound = -1;
@@ -110,16 +91,18 @@ private:
                 bound = mid;
                 if (isFirst) {
                     right = mid - 1; // Narrow down to the left part
-                } else {
+                } 
+                else {
                     left = mid + 1; // Narrow down to the right part
                 }
-            } else if (nums[mid] < target) {
+            }
+            else if (nums[mid] < target) {
                 left = mid + 1;
-            } else {
+            } 
+            else {
                 right = mid - 1;
             }
         }
 
         return bound;
     }
-};
