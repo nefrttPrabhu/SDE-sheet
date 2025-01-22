@@ -23,11 +23,11 @@ class Solution {
         while(!q.empty())// iterate till the queue is empty 
 
         {
-            int node = q.front(); // get the topmost element in the queue
+            int temp = q.front(); // get the topmost element in the queue
             q.pop(); // node mai store kar liya then q ke top se pop kar diya
             bfs.push_back(node); //wahi fir bfs jo output chahiye usmai dla diya
             
-            for(auto it : adj[node]) // traverse for all its neighbours and ye list given hoti hi 
+            for(auto it : adj[temp]) // traverse for all its neighbours and ye list given hoti hi 
             {
                 // if the neighbour has previously not been visited, 
                 // store in Q and mark as visited 
