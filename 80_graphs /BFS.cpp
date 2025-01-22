@@ -16,7 +16,8 @@ class Solution {
         vis[0] = 1; 
         queue<int> q;
 
-        q.push(0); // gets the 1st node of the graph
+        q.push(0); // In a graph, the nodes are typically labeled using integers starting from 0 to V-1 (where V is the total number of vertices in the graph). 
+                   // This is a common convention in programming to make it easier to work with adjacency lists and arrays, as array indices also start from 0.
         vector<int> bfs; 
       
         while(!q.empty())// iterate till the queue is empty 
