@@ -15,7 +15,7 @@ public:
 
             // If the middle element is greater than the rightmost element,
             // the minimum is in the right half.
-            if (nums[mid] > nums[right]) {
+            if (nums[mid] > nums[right]) { //for mid=2 and r=4 nums[mid]=5 > nums[r]=2 which is correct by condition but wrong as its supposed to be a sorted array
                 left = mid + 1;
             } 
             // Otherwise, the minimum is in the left half (including mid).
