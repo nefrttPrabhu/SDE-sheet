@@ -1,4 +1,4 @@
-//M1: Amazing fact line number16 conversion from 1D to 2D
+//M1: Amazing fact line number14 conversion from 1D to 2D
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m = matrix.size();  // Number of rows in the matrix
         int n = matrix[0].size();  // Number of columns in the matrix
