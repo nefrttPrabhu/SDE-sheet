@@ -24,19 +24,19 @@ public:
 
             if(nums[mid] == nums[mid+1]){
                 if(isEven){
-                    l=mid+2; //a, a,b,b,c:  a and a equal hi toh seedha b pe jane ke liye 
+                    l=mid+2; //a, a,b,b,c:  a and a equal hi toh seedha b pe jane ke liye .... right mai hoga
                 }
                 else{ 
-                    h=mid-1;
+                    h=mid-1; //left mai hoga
                 }
             }
                  
             else{
                 if(isEven){
-                    h=mid;
+                    h=mid; // left jao but mid bhi hoskta hai single 
                 }
                 else{
-                    l=mid+1;
+                    l=mid+1; //right mia hoga
                 }
             }
         }
