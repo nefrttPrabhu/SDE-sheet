@@ -16,7 +16,7 @@ public:
         while(l < h){ //l<=h no effect its just same as l<h just it chech same element twice
             int mid = l + (h - l)/2;
 
-            bool isEven;
+            bool isEven; //is used to determine whether the number of elements on the right side of the mid index is even or odd.
             if((h-mid)%2 == 0)
             isEven = true;
             else
@@ -24,12 +24,13 @@ public:
 
             if(nums[mid] == nums[mid+1]){
                 if(isEven){
-                    l=mid+2;
+                    l=mid+2; //a, a,b,b,c:  a and a equal hi toh seedha b pe jane ke liye 
                 }
                 else{ 
                     h=mid-1;
                 }
             }
+                 
             else{
                 if(isEven){
                     h=mid;
