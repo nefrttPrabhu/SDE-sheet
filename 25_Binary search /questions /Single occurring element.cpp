@@ -1,3 +1,4 @@
+//M1 : Binary Search
 /*
 all below wrt a                                                                                 m m+1
 Case 1: mid == mid+1 : even are remaining then no single on left, it will be found on the right a, a,b,b,c
@@ -41,3 +42,47 @@ public:
         return nums[h];
     }
 };
+
+
+//M2 : 
+int findSingleNonDuplicate(int a[], int n) {
+    for (int i = 0; i < n; i += 2) {  // Increment by 2 to skip pairs
+        if (i == n - 1 || a[i] != a[i + 1]) { // idhar ye hai ki aagr single element ki array hue toh bhi ye i == n-1 handle karlega
+            return a[i];  // Return the single non-duplicate element
+        }
+    }
+    return -1;  // Default case (should not occur if input is valid)
+}
+
+
+//M3 : XOR
+int singleNonDuplicate(int a[], int n) {
+    int result = 0;  // Initialize result to 0
+    for (int i = 0; i < n; i++) {
+        result ^= a[i];  // XOR each element with the result
+    }
+    return result;  // The result will hold the single non-duplicate element
+}
+
+//M3 : Hashmap
+#include <unordered_map>
+
+int singleNonDuplicate(int a[], int n) {
+    std::unordered_map<int, int> freq;  // Create a hash map to store frequencies
+
+    // Count the occurrences of each element
+    for (int i = 0; i < n; i++) {
+        freq[a[i]]++;
+    }
+
+    // Find the element with a frequency of 1
+    for (const auto& pair : freq) {
+        if (pair.second == 1) {
+            return pair.first;  // Return the single non-duplicate element
+        }
+    }
+
+    return -1;  // Return -1 if no such element exists (shouldn't happen with valid input)
+}
+
+
