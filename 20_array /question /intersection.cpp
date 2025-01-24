@@ -9,30 +9,25 @@ are 3,3 and 5.
 */
 
 
-#include<bits/stdc++.h>
-using namespace std;
-
-  vector<int> intersectionOfArrays(vector<int>A, vector<int>B){
-    
-  // Declare ans array.
+vector<int> intersectionOfArrays(vector<int>A, vector<int>B){
   vector <int> ans;
-
-  int i = 0, j = 0; 
-
+  int i = 0, j = 0;
+    int a = s1.size();
+    int b = s2.size();
   // to traverse the arrays
-  while (i < A.size() && j < B.size()) {
-      
+  while (i < a && j < b) {
     //if current element in i is smaller
-    if (A[i] < B[j]) { 
-      i++;
-    } else if (B[j] < A[i]) {
-      j++;
-    } else {
-        
+    if (s1[i] == s2[j]) { 
       //both elements are equal
-      ans.push_back(A[i]); 
+      ans.push_back(s1[i]); 
       i++;
       j++;
+    } 
+    else if (s1[i] > s2[j]) {
+      j++;
+    } 
+    else { 
+      i++;
     }
   }
   
