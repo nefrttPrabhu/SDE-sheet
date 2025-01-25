@@ -45,6 +45,7 @@ Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
 }
 
 
+
 //M3:
 Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
 Node* head, *h1, *h2; // Corrected pointer declarations with proper initialization
@@ -84,34 +85,3 @@ while (t1 != nullptr && t2 != nullptr) { // Corrected: Use nullptr instead of nu
 }
 
 
-// Function to find the middle of a linked list
-Node* findMiddle(Node* head){
-    if (head == nullptr || head->next == nullptr) {
-        return head;
-    }
-
-    // Initializing slow and fast pointers
-    Node* slow = head;
-    Node* fast = head->next;
-    while (fast != nullptr && fast->next != nullptr) {
-        slow = slow->next;
-        fast = fast->next->next;
-    }
-    return slow;
-}
-
-// Function to perform merge sort on a linked list
-Node* sortLL(Node* head){
-    if (head == nullptr || head->next == nullptr) {
-        return head;
-    }
-    Node* middle = findMiddle(head);
-    Node* right = middle->next;
-    middle->next = nullptr;
-    Node* left = head;
-    
-    left = sortLL(left);
-    right = sortLL(right);
-    
-    return mergeTwoSortedLinkedLists(left, right);
-}
