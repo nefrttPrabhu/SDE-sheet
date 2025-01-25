@@ -4,69 +4,29 @@
   S2: sort the array 
   S3: overwrite the elements of the LL
 */
-
-// Function to sort a linked list
-// using Brute Force approach
 Node* sortLL(Node* head){
-    // Create a vector to
-    // store node values
     vector<int> arr;
-    
-    // Temporary pointer to
-    // traverse the linked list
-    Node* temp = head;
-    
-    // Traverse the linked list and
-    // store node values in the vector
+    Node* temp = head;    // Temporary pointer to & traverse the linked list
     while(temp!=NULL){
         arr.push_back(temp->data);
         temp = temp->next;
     }
-    
-    // Sort the array
-    // containing node values
-    sort(arr.begin(), arr.end());
-    
-    // Reassign sorted values to
-    // the linked list nodes
-    temp = head;
+    sort(arr.begin(), arr.end()); // Sort the array & containing node values
+    temp = head;     // Reassign sorted values to & the linked list nodes
     for(int i = 0; i < arr.size(); i++){
-        // Update the node's data
-        // with the sorted values
-        temp->data = arr[i]; 
-        // Move to the next node
-        temp = temp->next; 
+        temp->data = arr[i];  // Update the node's data & with the sorted values
+        temp = temp->next;  // Move to the next node
     }
-    
-    // Return the head of the
-    // sorted linked list
-    return head; 
+    return head;     // Return the head of the & sorted linked list
 }
 
-// Function to print the linked list
-void printLinkedList(Node* head) {
-    Node* temp = head;
-    while (temp != nullptr) {
-        // Print the data of the current node
-        cout << temp->data << " "; 
-        // Move to the next node
-        temp = temp->next; 
-    }
-    cout << endl;
-}
+
 
 //M2: optimal extensive use of pointers only using a dummy node
-// Function to merge two sorted linked lists
 Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
-    // Create a dummy node to serve
-    // as the head of the merged list
     Node* dummyNode = new Node(-1);
     Node* temp = dummyNode;
-
-    // Traverse both lists simultaneously
     while (list1 != nullptr && list2 != nullptr) {
-        // Compare elements of both lists and
-        // link the smaller node to the merged list
         if (list1->data <= list2->data) {
             temp->next = list1;
             list1 = list1->next;
@@ -74,27 +34,18 @@ Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
             temp->next = list2;
             list2 = list2->next;
         }
-        // Move the temporary pointer
-        // to the next node
         temp = temp->next; 
     }
-
-    // If any list still has remaining
-    // elements, append them to the merged list
     if (list1 != nullptr) {
         temp->next = list1;
     } else {
         temp->next = list2;
     }
-    // Return the merged list starting 
-    // from the next of the dummy node
     return dummyNode->next;
 }
 
 // Function to find the middle of a linked list
 Node* findMiddle(Node* head){
-    // If the list is empty or has only one node
-    // the middle is the head itself
     if (head == nullptr || head->next == nullptr) {
         return head;
     }
@@ -102,38 +53,25 @@ Node* findMiddle(Node* head){
     // Initializing slow and fast pointers
     Node* slow = head;
     Node* fast = head->next;
-
-    // Move the fast pointer twice as fast as the slow pointer
-    // When the fast pointer reaches the end, the slow pointer
-    // will be at the middle
     while (fast != nullptr && fast->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
     }
-
     return slow;
 }
 
 // Function to perform merge sort on a linked list
 Node* sortLL(Node* head){
-    // Base case: if the list is empty or has only one node
-    // it is already sorted, so return the head
     if (head == nullptr || head->next == nullptr) {
         return head;
     }
-    
-    // Find the middle of the list using the findMiddle function
     Node* middle = findMiddle(head);
-    
-    // Divide the list into two halves
     Node* right = middle->next;
     middle->next = nullptr;
     Node* left = head;
     
-    // Recursively sort the left and right halves
     left = sortLL(left);
     right = sortLL(right);
     
-    // Merge the sorted halves using the mergeTwoSortedLinkedLists function
     return mergeTwoSortedLinkedLists(left, right);
 }
