@@ -44,6 +44,46 @@ Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
     return dummyNode->next;
 }
 
+
+//M3:
+Node* mergeTwoSortedLinkedLists(Node* list1, Node* list2) {
+Node* head, *h1, *h2; // Corrected pointer declarations with proper initialization
+if (t1->data < t2->data) {
+    head = t1;
+    h1 = t1; // Corrected: Assign h1 to t1 to keep track of list1
+    t1 = t1->next;
+    h1->next = t2; // Corrected: Use -> instead of . for accessing members of a pointer
+} else {
+    head = t2;
+    h2 = t2; // Corrected: Assign h2 to t2 to keep track of list2
+    t2 = t2->next;
+    h2->next = t1; // Corrected: Use -> instead of . for accessing members of a pointer
+}
+
+// Remaining list
+while (t1 != nullptr && t2 != nullptr) { // Corrected: Use nullptr instead of null
+    if (t1->data < t2->data) {
+        Node* temp = t1->next; // Declared temp as Node* for type safety
+        t1->next = t2;         // Corrected: Use -> instead of .
+        t1 = temp;
+    } else {
+        Node* temp = t2->next; // Declared temp as Node* for type safety
+        t2->next = t1;         // Corrected: Use -> instead of .
+        t2 = temp;
+    }
+}
+
+// dono lists mai se koi bhi ek bach gyi even if anyone get exhausted
+    if (list1 != nullptr) {
+        temp->next = list1;
+    } else {
+        temp->next = list2;
+    }
+
+  return head;
+}
+
+
 // Function to find the middle of a linked list
 Node* findMiddle(Node* head){
     if (head == nullptr || head->next == nullptr) {
