@@ -6,7 +6,7 @@ Output: 4
 S1. phele dekhliya start mai konkisko cancel kar de rha 
 S2. then baad mai dekh rhe jo bacha jiska count zyada 
 S3. vo element majority let kar liya but as per the ATQ: frq > (size of array)/2
-S4. last mai ek for ka loop chala liye uss element ko le karo  
+S4. last mai ek for ka loop chala liye uss element ko le kar
 S5. if uski frq as per ATQ hi then that is the majority element else DNE
 */
 
