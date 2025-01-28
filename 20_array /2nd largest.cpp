@@ -1,58 +1,23 @@
+//Eg: [0,2,5,4,3,1,7,6]
 // brute force
-void getElements(int arr[],int n)
-{
-    if(n==0 || n==1)
-        cout<<-1<<" "<<-1<<endl;  // edge case when only one element is present in array
-    sort(arr,arr+n);
-    int small=arr[1];
-    int large=arr[n-2];
-    cout<<"Second smallest is "<<small<<endl;
-    cout<<"Second largest is "<<large<<endl;
+int findIndex(int a[], int n) {
+    for (int i = n - 1; i > 0; i--) { // Start from n-1 and iterate backward
+        if (a[i] > a[i - 1]) {
+            return i - 1; // Return the index where a[i] > a[i-1]
+        }
+    }
+    return -1; // Return -1 if no such condition is met
 }
 
 
 //optimal
-int secondSmallest(int arr[],int n)
-{
-    if(n<2)
-        return -1;
-    int small = INT_MAX;
-    int second_small = INT_MAX;
-    int i;
-    for(i = 0; i < n; i++) 
-    {
-       if(arr[i] < small)
-       {
-          second_small = small;
-          small = arr[i];
-       }
-       else if(arr[i] < second_small && arr[i] != small)
-       {
-          second_small = arr[i];
-       }
-    }
-   return second_small;     
-}
-
-
-int secondLargest(int arr[],int n)
-{
-	if(n<2)
-	return -1;
-    int large=INT_MIN,second_large=INT_MIN;
-    int i;
-    for (i = 0; i < n; i++) 
-    {
-        if (arr[i] > large) 
-        {
-            second_large = large;
-            large = arr[i];
-        }
- 
-        else if (arr[i] > second_large && arr[i] != large) 
-        {
-            second_large = arr[i];
+//Eg: [0,2,5,4,3,1,7,6]
+    for (int i = 0; i < n; i++) {
+        if (a[i] > first) {
+            second = first;
+            first = a[i];
+        } 
+	else if (a[i] > second && a[i] < first) { //Logic resolution: The logic doesn’t handle the case where all elements in the array are the same or when the array has fewer than 2 elements.
+            second = a[i];
         }
     }
-    return second_large;                
-}
