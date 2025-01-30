@@ -12,6 +12,7 @@ int printNumbers(int n) {
     if (n == 0) {
         return 0; // Base case: stop recursion
     }
-    cout << n << " ";               // Print the current number after recursion
-    return printNumbers(n - 1) + 1; //Recursive call and Return control back to the previous call
+    int prev = printNumbers(n - 1); // Recursive call first
+    cout << n << " ";               // Print after recursion (ensuring ascending order)
+    return prev + 1;                // Return count of numbers printed (optional) nothing much as the fng having a int return type thats y 
 }
