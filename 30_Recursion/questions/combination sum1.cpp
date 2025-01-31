@@ -17,11 +17,11 @@ private:
 
         if (arr[ind] <= target) {
             ds.push_back(arr[ind]);
-            findCombinations(ind, arr, target - arr[ind], ans, ds);
-            ds.pop_back();
+            findCombinations(ind, arr, target - arr[ind], ans, ds); //tab tak add karta rhega jabtak target se chota hi uske baad ye hoga ki nxt index ke number pe jayega removing the last one and all the ones that not to be used 
+            ds.pop_back(); //ispe tab ayega jab 
         }
 
-        findCombinations(ind + 1, arr, target, ans, ds);
+        findCombinations(ind + 1, arr, target, ans, ds); //yahan tab ayega jab maan lo target hi 7 and abhi ka set hi 2,2,2,2 toh ab ye bada ho gya toh uper wale recursion se jab wepas aya toh 2 ko remove kiya and nxt index pe gya iss talash mai ki usko aisa milega ki ya toh target ke equal ho ya fir usse chota 
     }
 
 public:
