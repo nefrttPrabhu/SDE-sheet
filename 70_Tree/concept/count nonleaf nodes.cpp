@@ -5,16 +5,13 @@ int nonleaf(Node* root) {
 }
 
 int nonleaf(Node* root) {
-    // Base case: Handle empty tree
     if (root == NULL) {
         return 0;
     }
-
-    // Base case: If it's a leaf node, return 0
     if (root->left == NULL && root->right == NULL) { 
         return 0;
     }
-
-    // Recursive case: Count the current node as non-leaf and proceed to children
     return (1 + nonleaf(root->left) + nonleaf(root->right));
 }
+
+
