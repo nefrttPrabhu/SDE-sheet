@@ -1,20 +1,19 @@
+/*
+Eg: arr[] = {1, 1, 2, 2, 3, 4, 4, 5}
+    arr[] = {1, 2, 3, 4, 5,  ,  ,  }
+*/
+
 //M1:brute force
 void removeDuplicates(vector<int>& arr) {
     set<int> s;
-    
-    // Insert elements into the set (duplicates are automatically removed)
     for (auto i : arr) {
         s.insert(i);  // Insert element into the set
     }
-
     int a = 0;
-    // Copy the unique elements from the set back to the array
     for (auto j : s) {
         arr[a] = j;  // Assign the unique element back to the array
         a++;         // Increment the index
     }
-
-    // Resize the array to contain only the unique elements
     arr.resize(s.size());
 }
 
@@ -33,9 +32,10 @@ void removeDuplicates(vector<int>& arr) {
         }
     }
 
-    // The new size of the array after removing duplicates is 'a'
     arr.resize(a);
 }
+
+
 
 //M3:
 void removeDuplicates(int arr[], int &n) {
@@ -47,8 +47,23 @@ void removeDuplicates(int arr[], int &n) {
             arr[j++] = arr[i];      // Place the current element in the result
         }
     }
-    // Add the last element (since it won't be compared in the loop)
     arr[j++] = arr[n - 1];
-    
     n = j; // Update the size of the array to reflect unique elements
+}
+
+
+//M4: 
+void removeDuplicates(int arr[], int &n) {
+    if (n == 0) return;
+    int i = 0;
+    int j = 1;
+
+    while (j < n) {
+        if (arr[j] != arr[i]) { // Found a new unique element
+            i++;               // Move slow pointer
+            arr[i] = arr[j];   // Copy unique value
+        }
+        j++; // Move fast pointer
+    }
+    n = i + 1; // Update array size
 }
