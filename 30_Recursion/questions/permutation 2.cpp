@@ -1,3 +1,4 @@
+//M2: optimal in term of space
 void generatePermutations(vector<int> &a, int index, vector<vector<int>> &ans) {
     if (index == a.size()) {  // Base case: If index reaches the end, store the permutation
         ans.push_back(a);
