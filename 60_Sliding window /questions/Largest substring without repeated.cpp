@@ -29,3 +29,80 @@ int lengthOfLongestSubstring(string s) {
         return len;
     }
 
+
+
+
+//M2:
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length();
+        int j = 0, i = 0, c = 0;  // j = right pointer, i = left pointer, c = max length
+        map<char, int> mp;  // Stores the last index of characters
+
+        while (j < n) {
+            if (mp.find(s[j]) == mp.end() || mp[s[j]] < i) {
+                // Character is not in the current window
+                mp[s[j]] = j;  // Store the last occurrence
+                c = max(c, j - i + 1);  // Update max length
+                j++;  // Expand window
+            } else {
+                // Duplicate found: move left pointer `i` to the right of last occurrence
+                i = mp[s[j]] + 1;
+            }
+        }
+
+        return c;
+    }
+};
+
+
+
+
+//M3:
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> lastIndex(256, -1);  // ASCII character tracking
+        int left = 0, maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            if (lastIndex[s[right]] >= left) {
+                left = lastIndex[s[right]] + 1;
+            }
+            lastIndex[s[right]] = right;
+            maxLength = max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+};
+
+
+
+//M4:
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length();
+        if (n == 0) return 0;
+        
+        vector<int> lastIndex(256, -1);  // Tracks the last index of each character
+        int maxLength = 0;
+        int start = 0;  // Start of the current substring
+        
+        for (int i = 0; i < n; i++) {
+            if (lastIndex[s[i]] >= start) {
+                // Move start to the right of the last occurrence of s[i]
+                start = lastIndex[s[i]] + 1;
+            }
+            
+            // Update last index of character
+            lastIndex[s[i]] = i;
+
+            // Calculate the max length
+            maxLength = max(maxLength, i - start + 1);
+        }
+        
+        return maxLength;
+    }
+};
