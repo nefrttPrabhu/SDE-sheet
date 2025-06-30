@@ -35,7 +35,7 @@ int main(){
 
     for(int i = 1; i <= n; i++){
         if(!vis[i]){
-            int count = 0;
+            int count = 0; //keeping it outside if will also give same result coz if is checking whom to allow go in and whom not to aise cnt uper he baar baar zero ho rha per andder dfs mai ja he nhi par rha hai coz the if is keeping the check
             dfs(adj, vis, i, count);
             ans.push_back(count); 
         }
